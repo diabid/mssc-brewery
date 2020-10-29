@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(BeerController.class)
-public class BeerControllerIT {
+public class    BeerControllerIT {
 
     @MockBean
     BeerService beerService;
