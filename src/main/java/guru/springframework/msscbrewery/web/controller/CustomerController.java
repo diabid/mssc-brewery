@@ -28,7 +28,7 @@ public class CustomerController {
     public ResponseEntity saveCustomer(@RequestBody CustomerDto customerDto) {
         CustomerDto dto = customerService.saveCustomer(customerDto);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", customerDto.getId().toString());
+        headers.add("Location", dto.getId().toString());
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
@@ -36,5 +36,11 @@ public class CustomerController {
     public ResponseEntity updateCustomer(@PathVariable("customerId") UUID customerId) {
         customerService.updateCustomer(customerId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping({"/{customerId}"})
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBeer(@PathVariable("customerId") UUID customerId){
+        customerService.deleteCustomer(customerId);
     }
 }

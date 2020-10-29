@@ -1,10 +1,12 @@
 package guru.springframework.msscbrewery.services;
 
 import guru.springframework.msscbrewery.web.model.CustomerDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -22,6 +24,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(UUID customerId) {
+        log.debug("Updating customer.....");
+    }
 
+    @Override
+    public void deleteCustomer(UUID customerId) {
+        log.debug("Deleting customer.....");
     }
 }
